@@ -6,6 +6,7 @@ import Subheading from "~/components/subheading";
 import ProductList from "~/components/product-list";
 import ModifierSelectionModal from "~/components/modals/ModifierSelectionModal";
 import { ModalContext } from "~/providers/ModalProvider";
+import Header from "~/components/header";
 
 export const useCompanyLoader = routeLoader$(({ params }) => {
   console.log(params);
@@ -33,7 +34,7 @@ export default component$(() => {
 
   return (
     <>
-      {/* <div>'companyHome' {JSON.stringify(location.params.companyId)}</div> */}
+      <Header />
       <CompanyIfo />
       <div class="px-2">
         <Subheading title="Today's Specials" />
