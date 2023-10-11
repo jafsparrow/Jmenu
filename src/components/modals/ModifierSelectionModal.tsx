@@ -128,7 +128,7 @@ export default component$(() => {
                               modiferSelectionStore[item.id.toString()]
                                 ? "text-green-800"
                                 : "text-black"
-                            } font-light`}
+                            } font-semibold`}
                           >
                             {item.isRequired ? "Required" : "Optional"}
                           </div>
@@ -185,10 +185,10 @@ export default component$(() => {
                     )
                   )}
 
-                  <div class="flex gap-4 justify-between">
+                  <div class="flex gap-4 justify-between mt-2">
                     <div class="flex gap-2 items-center">
                       <button
-                        class="rounded-full w-4 h-4 bg-gray-400 flex justify-center items-center font-bold"
+                        class="rounded-full w-7 h-7 bg-gray-400 flex justify-center items-center font-bold"
                         onClick$={() => {
                           if (cartItemStore.cartItem!.count != 1) {
                             cartItemStore.cartItem!.count =
@@ -202,7 +202,7 @@ export default component$(() => {
                         <input
                           type="number"
                           value={cartItemStore.cartItem?.count}
-                          class="w-12 text-center border p-2"
+                          class="w-16 text-center  p-2 "
                           onChange$={(event) => {
                             cartItemStore.cartItem!.count = Number(
                               event.target.value
@@ -220,9 +220,8 @@ export default component$(() => {
                         +
                       </button>
                     </div>
-                    <div class="text-3xl">{}</div>
                     <button
-                      class="bg-green-400"
+                      class="bg-black text-white  w-full "
                       onClick$={handleSubmit}
                       // disabled={
                       //   Object.keys(modiferSelectionStore).length == 0
@@ -230,7 +229,9 @@ export default component$(() => {
                       //     : false
                       // }
                     >
-                      ADD TO CART {total.value.toFixed(3)}
+                      ADD for{" "}
+                      <span class="font-bold">{total.value.toFixed(3)}</span>{" "}
+                      OMR
                     </button>
                   </div>
                 </div>

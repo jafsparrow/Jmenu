@@ -1,4 +1,4 @@
-import { component$, useContext } from "@builder.io/qwik";
+import { component$, useContext, useVisibleTask$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { companyData, products } from "./constants";
 import CompanyIfo from "~/components/companyifo";
@@ -24,6 +24,12 @@ export default component$(() => {
   const productsList = userProductsLoader();
 
   const modalContext = useContext(ModalContext);
+
+  useVisibleTask$(({ track }) => {
+    track(() => modalContext.isOpen);
+
+    document.body.style.overflow = modalContext.isOpen ? "hidden" : "unset";
+  });
 
   return (
     <>
